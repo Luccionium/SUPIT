@@ -1,0 +1,377 @@
+/**/
+html {
+  scroll-behavior: smooth;
+  font-family: "Oswald", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(218, 218, 218);
+}
+
+.material-symbols-outlined {
+  vertical-align: sub;
+  position: relative;
+  top: -1px;
+  margin-right: 5.2px;
+}
+
+.info-icon {
+  vertical-align: middle;
+  top: -1px;
+}
+
+.mail-icon {
+  vertical-align: sub;
+  top: 0px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.kampus-iz-zraka-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+
+  transform: translateY(-50px);
+  animation: slideInImage 0.8s ease-out forwards;
+}
+
+@keyframes slideInImage {
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/oswald/v57/TK3iWkUHHAIjg752GT8G.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-container a:hover {
+  color: orange;
+}
+
+/*main navaigation*/
+.main-nav {
+  display: flex;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav li {
+  display: inline-block;
+}
+
+.main-nav a {
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.hover-underline {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  display: inline-block;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  bottom: 0px;
+  width: 100%;
+  height: 2px;
+  background: orange;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+}
+
+.hover-underline:hover {
+  color: orange;
+}
+
+
+/*anchor navigation*/
+.anchor-nav {
+  display: flex;
+  gap: 20px;
+  opacity: 0;
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.anchor-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.anchor-nav li {
+  display: inline-block;
+}
+
+.anchor-nav a {
+  color: white;
+  padding: 5px 5px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+/*anchor-nav slide animation*/
+@keyframes slideIn {
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/**/
+
+#nase-vrijednosti,
+#povijest,
+#algebra-grupa,
+#direkcije {
+  scroll-margin-top: 80px;
+}
+
+
+.nase-vrijednosti-h2,
+.povijest-h2,
+.algebra-grupa-h2 {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.direkcije-h2{
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.o-nama-h1{
+  text-align: center;
+}
+
+.nase-vrijednosti-wot,
+.povijest-wot,
+.algebra-grupa-wot {
+  text-align: center;
+  font-style: italic;
+  padding-left: 25%;
+  width: 50%;
+}
+
+.nv-card-container,
+.povijest-card-container,
+.algebra-grupa-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.nase-vrijednosti-card {
+  background-color: #fff;
+  color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(233, 177, 125);
+  flex: 1 1 250px;
+  max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.direction-wrapper {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+  z-index: 1;
+}
+
+.direction-card {
+  flex: 1 1 250px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.direction-card h4 {
+  margin-top: 0;
+  color: #e68a00;
+}
+
+.direction-card p {
+  color: #000000;
+}
+
+
+
+.povijest-card {
+  background-color: #fff;
+  color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(154, 187, 230);
+  flex: 1 1 calc(33.333% - 40px);
+  max-width: 450px;
+  transition: all 0.3s ease;
+}
+
+.algebra-grupa-card {
+  flex: 1 1 calc(25% - 20px); 
+  max-width: 350px;
+  background-color: #fff;
+  color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(233, 177, 125);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.algebra-grupa-card img {
+  margin-left: 20%; 
+  max-width: 50%;
+  max-height: 100%;
+  background-color: #fff;
+  color: #222;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.algebra-grupa-card:nth-child(n+6) img {
+  margin-left: 20%;
+  margin-bottom: 10%; 
+  max-width: 50%;
+  max-height: 50%;
+  background-color: #fff;
+  color: #222;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.algebra-grupa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 5px rgb(230, 190, 154);
+}
+.nase-vrijednosti-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 5px rgb(230, 190, 154);
+}
+.povijest-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 5px rgb(154, 187, 230);
+}
+
+.o-nama-line-break {
+  width: 50%;
+  border: 2px solid orange;
+  border-radius: 5px;
+}
+
+.direkcije-section{
+  position: relative;
+}
+
+.direkcije-bg-img{
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  object-fit: cover;
+  object-position: center;
+  z-index: -1; 
+}
+
+.gmap-iframe{
+  width: 600px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.map-line-break{
+  position: absolute;
+  top: 50px;
+  left: -2px;
+  width: 100%;
+  border: 1px solid black;
+  z-index: 2;
+  margin: 0;
+  box-shadow: 0 4px 8px rgb(233, 177, 125);
+}
+
