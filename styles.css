@@ -141,7 +141,6 @@ header {
   color: orange;
 }
 
-
 /*anchor navigation*/
 .anchor-nav {
   display: flex;
@@ -193,7 +192,6 @@ header {
   scroll-margin-top: 80px;
 }
 
-
 .nase-vrijednosti-h2,
 .povijest-h2,
 .algebra-grupa-h2 {
@@ -201,12 +199,12 @@ header {
   padding-bottom: 60px;
 }
 
-.direkcije-h2{
+.direkcije-h2 {
   text-align: center;
   padding-bottom: 60px;
 }
 
-.o-nama-h1{
+.o-nama-h1 {
   text-align: center;
 }
 
@@ -272,8 +270,6 @@ header {
   color: #000000;
 }
 
-
-
 .povijest-card {
   background-color: #fff;
   color: #222;
@@ -286,7 +282,7 @@ header {
 }
 
 .algebra-grupa-card {
-  flex: 1 1 calc(25% - 20px); 
+  flex: 1 1 calc(25% - 20px);
   max-width: 350px;
   background-color: #fff;
   color: #222;
@@ -300,7 +296,7 @@ header {
 }
 
 .algebra-grupa-card img {
-  margin-left: 20%; 
+  margin-left: 20%;
   max-width: 50%;
   max-height: 100%;
   background-color: #fff;
@@ -311,9 +307,9 @@ header {
   justify-content: space-between;
 }
 
-.algebra-grupa-card:nth-child(n+6) img {
+.algebra-grupa-card:nth-child(n + 6) img {
   margin-left: 20%;
-  margin-bottom: 10%; 
+  margin-bottom: 10%;
   max-width: 50%;
   max-height: 50%;
   background-color: #fff;
@@ -343,28 +339,28 @@ header {
   border-radius: 5px;
 }
 
-.direkcije-section{
+.direkcije-section {
   position: relative;
 }
 
-.direkcije-bg-img{
+.direkcije-bg-img {
   position: absolute;
   top: 50px;
   left: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: -1; 
+  z-index: -1;
 }
 
-.gmap-iframe{
+.gmap-iframe {
   width: 600px;
   height: 200px;
   border-radius: 5px;
 }
 
-.map-line-break{
+.map-line-break {
   position: absolute;
   top: 50px;
   left: -2px;
@@ -375,3 +371,128 @@ header {
   box-shadow: 0 4px 8px rgb(233, 177, 125);
 }
 
+/*kontakt popup*/
+
+button.hover-underline {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 10px;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+button.hover-underline::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  bottom: 0px;
+  width: 100%;
+  height: 2px;
+  background: orange;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+button.hover-underline:hover {
+  color: orange;
+}
+
+button.hover-underline:hover::after {
+  transform: scaleX(1);
+}
+
+
+button:active{
+  opacity: 0.8;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(5px);          
+  opacity: 0;
+  pointer-events: none;                
+  transition: opacity 0.3s ease;
+  z-index: 999;                        
+}
+
+.modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.modal-inner {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px black;
+  padding: 15px 25px;
+  text-align: center;
+  width: 380px;
+}
+
+.modal-inner h2{
+  margin: 0;
+}
+
+.modal-inner p {
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+.modal-inner form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-inner input,
+.modal-inner textarea {
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-inner button[type="submit"] {
+  width: 88px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.modal-inner button[type="submit"]:hover {
+  background-color: darkorange;
+}
+
+#closemodal {
+  width: 88px;
+  border-radius: 20px;
+  padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  align-self: center;
+}
+
+#closemodal:hover {
+  opacity: 0.8;
+}

@@ -48,10 +48,35 @@
               >
             </li>
             <li>
-              <a href="contact.html" class="hover-underline"
-                ><i class="material-symbols-outlined mail-icon"> mail </i
-                >Kontakt</a
-              >
+              <button class="hover-underline" id="openmodal">
+                <i class="material-symbols-outlined mail-icon"> mail </i>Kontakt
+              </button>
+              <div class="modal" id="modal">
+                <div class="modal-inner">
+                  <h2>Kontaktirajte nas</h2>
+                  <form id="contactForm">
+                    <div>
+                      <label for="name">Ime:</label>
+                      <input type="text" id="name" name="name" required />
+                    </div>
+                    <div>
+                      <label for="email">Email:</label>
+                      <input type="email" id="email" name="email" required />
+                    </div>
+                    <div>
+                      <label for="message">Poruka:</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        required
+                      ></textarea>
+                    </div>
+                    <button type="submit">Pošalji</button>
+                    <button type="button" id="closemodal">Zatvori</button>
+                  </form>
+                </div>
+              </div>
             </li>
           </ul>
         </nav>
@@ -399,8 +424,9 @@
 
       <section class="direkcije-section">
         <h2 class="direkcije-h2" id="direkcije">Kako do nas?</h2>
-        <hr class="map-line-break">
-        <img class="direkcije-bg-img"
+        <hr class="map-line-break" />
+        <img
+          class="direkcije-bg-img"
           src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\gradiscanska_ul_24.png"
           alt="gradiscanska_ul_24"
         />
@@ -463,5 +489,7 @@
         </div>
       </section>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
