@@ -54,7 +54,11 @@
               <div class="modal" id="modal">
                 <div class="modal-inner">
                   <h2>Kontaktirajte nas</h2>
-                  <form id="contactForm">
+                  <form
+                    id="contactForm"
+                    action="https://www.fulek.com/mvc/supit/project-contact-form"
+                    method="post"
+                  >
                     <div class="form-row">
                       <label for="name">Ime:</label>
                       <input type="text" id="name" name="name" required />
@@ -66,9 +70,9 @@
                     <div class="form-row">
                       <label for="importance">Važnost poruke:</label>
                       <select name="importance" id="importance" required>
-                        <option value="high">Visoka</option>
-                        <option value="medium">Srednja</option>
-                        <option value="low">Niska</option>
+                        <option value="High">Visoka</option>
+                        <option value="Medium">Srednja</option>
+                        <option value="Low">Niska</option>
                       </select>
                     </div>
                     <div class="form-row">
@@ -79,16 +83,16 @@
                         rows="4"
                         required
                       ></textarea>
-                      <div class="form-row">
-                        <label for="notifications">
-                          Želim primati obavijesti
-                          <input
-                            type="checkbox"
-                            id="notifications"
-                            name="notifications"
-                          />
-                        </label>
-                      </div>
+                    </div>
+                    <div class="form-row">
+                      <label for="notifications">
+                        Želim primati obavijesti
+                        <input
+                          type="checkbox"
+                          id="notifications"
+                          name="notifications"
+                        />
+                      </label>
                     </div>
                     <div class="form-row buttons-row">
                       <button type="submit">Pošalji</button>

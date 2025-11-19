@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=diversity_3,home,info,login,mail"
     />
   </head>
-  <body>
+  <body id="about-body">
     <header>
       <div class="nav-container">
         <nav class="main-nav">
@@ -53,7 +53,11 @@
               <div class="modal" id="modal">
                 <div class="modal-inner">
                   <h2>Kontaktirajte nas</h2>
-                  <form id="contactForm">
+                  <form
+                    id="contactForm"
+                    action="https://www.fulek.com/mvc/supit/project-contact-form"
+                    method="post"
+                  >
                     <div class="form-row">
                       <label for="name">Ime:</label>
                       <input type="text" id="name" name="name" required />
@@ -65,9 +69,9 @@
                     <div class="form-row">
                       <label for="importance">Važnost poruke:</label>
                       <select name="importance" id="importance" required>
-                        <option value="high">Visoka</option>
-                        <option value="medium">Srednja</option>
-                        <option value="low">Niska</option>
+                        <option value="High">Visoka</option>
+                        <option value="Medium">Srednja</option>
+                        <option value="Low">Niska</option>
                       </select>
                     </div>
                     <div class="form-row">
@@ -78,16 +82,16 @@
                         rows="4"
                         required
                       ></textarea>
-                      <div class="form-row">
-                        <label for="notifications">
-                          Želim primati obavijesti
-                          <input
-                            type="checkbox"
-                            id="notifications"
-                            name="notifications"
-                          />
-                        </label>
-                      </div>
+                    </div>
+                    <div class="form-row">
+                      <label for="notifications">
+                        Želim primati obavijesti
+                        <input
+                          type="checkbox"
+                          id="notifications"
+                          name="notifications"
+                        />
+                      </label>
                     </div>
                     <div class="form-row buttons-row">
                       <button type="submit">Pošalji</button>
@@ -100,6 +104,14 @@
           </ul>
         </nav>
     </header>
+    <video id="typingLaptopVideo" autoplay loop>
+      <source src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\video\typingOnlaptop.mp4" type="video/mp4" >
+    </video>
+    <div class="zaiskri-moto">
+      <p>
+        Zaiskri!
+      </p>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

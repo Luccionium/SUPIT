@@ -8,3 +8,5 @@ openBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
     modal.classList.remove("open");
 })
+
+const notifications = document.getElementById("notifications").checked;
