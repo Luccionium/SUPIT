@@ -31,7 +31,7 @@ header {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: black;
+  background-color: #151515;
   padding: 10px 20px;
   box-sizing: border-box;
   z-index: 100;
@@ -191,6 +191,7 @@ header {
 #algebra-grupa,
 #direkcije {
   scroll-margin-top: 80px;
+  color: #151515;
 }
 
 .nase-vrijednosti-h2,
@@ -198,6 +199,7 @@ header {
 .algebra-grupa-h2 {
   text-align: center;
   padding-bottom: 60px;
+  color: #151515;
 }
 
 .direkcije-h2 {
@@ -207,6 +209,7 @@ header {
 
 .o-nama-h1 {
   text-align: center;
+  color: #151515;
 }
 
 .nase-vrijednosti-wot,
@@ -406,8 +409,7 @@ button.hover-underline:hover::after {
   transform: scaleX(1);
 }
 
-
-button:active{
+button:active {
   opacity: 0.8;
 }
 
@@ -421,19 +423,18 @@ button:active{
   justify-content: center;
   align-items: center;
 
-  background-color: rgba(0, 0, 0, 0.5); 
-  backdrop-filter: blur(5px);          
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
   opacity: 0;
-  pointer-events: none;                
+  pointer-events: none;
   transition: opacity 0.3s ease;
-  z-index: 999;                        
+  z-index: 999;
 }
 
 .modal.open {
   opacity: 1;
   pointer-events: auto;
 }
-
 
 .modal-inner {
   background-color: #fff;
@@ -444,7 +445,7 @@ button:active{
   width: 380px;
 }
 
-.modal-inner h2{
+.modal-inner h2 {
   margin: 0;
 }
 
@@ -511,7 +512,7 @@ button:active{
   z-index: -1;
 }
 
-.zaiskri-moto p{
+.zaiskri-moto p {
   margin-top: 22.5%;
   text-align: center;
   font-family: "Oswald";
@@ -521,6 +522,65 @@ button:active{
   color: rgb(255, 51, 51);
   text-shadow: #222 4px 2px 2px;
   animation: slideIn 0.8s ease-in-out;
+}
+
+.footer-sab{
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: #151515;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.footer-container {
+  background: linear-gradient(135deg,  rgba(224,111,15,1) 0%,rgba(196,15,95,1) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.footer-marketing-channels {
+  display: flex;
+}
+
+.footer-marketing-channels ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer-marketing-channels li {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.footer-marketing-channels a {
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.footer-container p{
+  padding-right: 20px;
+  color: #fff; 
+}
+
+.footer-icons {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: inline-block;
+  filter: invert(100%) brightness(200%);
 }
 
 
