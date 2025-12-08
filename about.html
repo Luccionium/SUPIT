@@ -23,10 +23,53 @@
         <nav class="main-nav">
           <ul class="main-links oswald-font">
             <li>
-              <a href="login.html" class="hover-underline"
-                ><i class="material-symbols-outlined login-icon"> login </i
-                >Prijavi se</a
-              >
+              <button class="hover-underline" id="open-login-modal">
+                <i class="material-symbols-outlined login-icon"> login </i>Prijava
+              </button>
+
+              <div class="modal" id="login-modal">
+                <div class="modal-inner">
+
+                  <div class="modal-tabs">
+                    <button class="tab active" id="tab-login">Prijava</button>
+                    <button class="tab" id="tab-register">Registracija</button>
+                  </div>
+
+                  <form id="loginForm" class="form active" method="post" action="LOGIN_URL_HERE">
+                    <div class="form-row">
+                      <label for="login-username">Korisničko ime:</label>
+                      <input type="text" id="login-username" name="username" required />
+                    </div>
+
+                    <div class="form-row">
+                      <label for="login-password">Lozinka:</label>
+                      <input type="password" id="login-password" name="password" required />
+                    </div>
+
+                    <div class="form-row buttons-row">
+                      <button type="submit">Prijavi se</button>
+                    </div>
+                  </form>
+
+                  <form id="registerForm" class="form" method="post" action="REGISTER_URL_HERE">
+                    <div class="form-row">
+                      <label for="reg-username">Korisničko ime:</label>
+                      <input type="text" id="reg-username" name="username" required />
+                    </div>
+
+                    <div class="form-row">
+                      <label for="reg-password">Lozinka:</label>
+                      <input type="password" id="reg-password" name="password" required />
+                    </div>
+
+                    <div class="form-row buttons-row">
+                      <button type="submit">Registriraj se</button>
+                    </div>
+                  </form>
+
+                  <button type="button" id="close-login-modal">Zatvori</button>
+                </div>
+              </div>
             </li>
             <li>
               <a href="index.html" class="hover-underline"
@@ -518,15 +561,15 @@
         <nav class="footer-marketing-channels">
           <ul class="footer-links">
             <li>
-              <a href="https://www.tiktok.com/@algebrauniversity"><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\tik-tok.png"></a>
+              <a href="https://www.tiktok.com/@algebrabernaysuniversity/"><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\tik-tok.png"></a>
             </li>
             <li>
-              <a href="https://www.facebook.com/sveucilistealgebra/"
+              <a href="https://www.facebook.com/sveucilistealgebrabernays/"
                 ><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\facebook.png"></a
               >
             </li>
             <li>
-              <a href="https://www.instagram.com/algebra_university/"
+              <a href="https://www.instagram.com/algebrabernaysuniversity/"
                 ><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\instagram-logo.png"></a
               >
             </li>
