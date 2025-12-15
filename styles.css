@@ -782,3 +782,7 @@ button:active {
   display: inline-block;
   filter: invert(100%) brightness(200%);
 }
+
+#curriculum-link {
+  display: none;
+}

@@ -54,22 +54,32 @@ tabRegister.addEventListener("click", () => {
 function toggleLoginLogout() {
   const loginBtn = document.getElementById("open-login-modal");
   const loginIcon = loginBtn.querySelector(".login-icon");
+  const curriculumLink = document.getElementById("curriculum-link");
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   
   if (isLoggedIn) {
     loginIcon.classList.add("flipped");
     
     loginBtn.innerHTML = '<i class="material-symbols-outlined login-icon flipped">login</i>Odjava';
+
+    if (curriculumLink) {
+      curriculumLink.style.display = "inline-block";
+    }
     
     loginBtn.onclick = (e) => {
       e.preventDefault();
       localStorage.removeItem("isLoggedIn");
       localStorage.removeItem("username");
+      localStorage.removeItem("jwtToken");
       toggleLoginLogout();
       alert("Uspješno ste se odjavili!");
     };
   } else {
     loginBtn.innerHTML = '<i class="material-symbols-outlined login-icon">login</i>Prijava';
+
+    if (curriculumLink) {
+      curriculumLink.style.display = "none";
+    }
     
     loginBtn.onclick = () => {
       loginModal.classList.add("open");
@@ -77,34 +87,87 @@ function toggleLoginLogout() {
   }
 }
 
-formLogin.addEventListener("submit", (e) => {
+//Login form submission handler
+formLogin.addEventListener("submit", async (e) => {
   e.preventDefault();
   
   const username = document.getElementById("login-username").value;
+  const password = document.getElementById("login-password").value;
   
-  localStorage.setItem("isLoggedIn", "true");
-  localStorage.setItem("username", username);
+  console.log("Attempting login with:", username);
   
-  loginModal.classList.remove("open");
-  toggleLoginLogout();
-  alert("Uspješno ste se prijavili!");
-  
-  formLogin.reset();
+  try {
+    const response = await fetch("https://www.fulek.com/data/api/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ 
+        username: username, 
+        password: password 
+      })
+    });
+    
+    const data = await response.json();
+    console.log("Server response:", data);
+    
+    if (data.isSuccess && data.data && data.data.token) {
+
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("username", username);
+      localStorage.setItem("jwtToken", data.data.token);
+      
+      loginModal.classList.remove("open");
+      toggleLoginLogout();
+      alert("Uspješno ste se prijavili!");
+      formLogin.reset();
+    } else {
+
+      const errorMsg = data.errorMessages ? data.errorMessages[0] : "Prijava nije uspjela!";
+      alert(errorMsg);
+    }
+  } catch (error) {
+    console.error("Login error:", error);
+    alert("Došlo je do greške pri prijavi!");
+  }
 });
 
-formRegister.addEventListener("submit", (e) => {
+//Register form submission handler
+formRegister.addEventListener("submit", async (e) => {
   e.preventDefault();
   
   const username = document.getElementById("reg-username").value;
+  const password = document.getElementById("reg-password").value;
   
-  localStorage.setItem("isLoggedIn", "true");
-  localStorage.setItem("username", username);
+  console.log("Attempting registration with:", username);
   
-  loginModal.classList.remove("open");
-  toggleLoginLogout();
-  alert("Uspješno ste se registrirali i prijavili!");
-  
-  formRegister.reset();
+  try {
+    const response = await fetch("https://www.fulek.com/data/api/user/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ 
+        username: username, 
+        password: password 
+      })
+    });
+    
+    const data = await response.json();
+    console.log("Register response:", data);
+    
+    if (data.isSuccess) {
+      alert("Uspješno ste se registrirali! Sada se možete prijaviti.");
+      tabLogin.click();
+      formRegister.reset();
+    } else {
+      const errorMsg = data.errorMessages ? data.errorMessages[0] : "Registracija nije uspjela!";
+      alert(errorMsg);
+    }
+  } catch (error) {
+    console.error("Register error:", error);
+    alert("Došlo je do greške pri registraciji!");
+  }
 });
 
 toggleLoginLogout();
