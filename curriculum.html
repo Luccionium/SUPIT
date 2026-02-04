@@ -1,100 +1,239 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SUPIT</title>
+    <title>Nastavni Plan - SUPIT</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
       rel="stylesheet"
-      class="oswald-font"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=diversity_3,home,info,login,mail"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=diversity_3,home,info,login,mail,school"
     />
+
+    <style>
+      /* Curriculum Page Specific Styles */
+      .curriculum-main {
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: calc(100vh - 200px);
+      }
+
+      .curriculum-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .curriculum-header h1 {
+        font-family: "Oswald", sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          rgba(224, 111, 15, 1) 0%,
+          rgba(196, 15, 95, 1) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+      }
+
+      .search-section {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .search-section h2 {
+        font-family: "Oswald", sans-serif;
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      #course-search {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e77b33;
+        border-radius: 10px;
+        font-size: 16px;
+        font-family: "Oswald", sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      #course-search:focus {
+        outline: none;
+        border-color: rgba(224, 111, 15, 1);
+        box-shadow: 0 0 0 4px rgba(224, 111, 15, 0.1);
+      }
+
+      .autocomplete-results {
+        position: relative;
+        margin-top: 10px;
+      }
+
+      .autocomplete-item {
+        padding: 15px;
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-top: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: "Oswald", sans-serif;
+      }
+
+      .autocomplete-item:first-child {
+        border-top: 1px solid #e0e0e0;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .autocomplete-item:last-child {
+        border-radius: 0 0 10px 10px;
+      }
+
+      .autocomplete-item:only-child {
+        border-radius: 10px;
+      }
+
+      .autocomplete-item:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(224, 111, 15, 0.1) 0%,
+          rgba(196, 15, 95, 0.1) 100%
+        );
+        transform: translateX(5px);
+      }
+
+      .table-section {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow-x: auto;
+      }
+
+      .courses-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: "Oswald", sans-serif;
+      }
+
+      .courses-table thead {
+        background: linear-gradient(
+          135deg,
+          rgba(224, 111, 15, 1) 0%,
+          rgba(196, 15, 95, 1) 100%
+        );
+        color: white;
+      }
+
+      .courses-table th {
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      .courses-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .courses-table tbody tr:hover {
+        background: rgba(224, 111, 15, 0.05);
+      }
+
+      .courses-table tfoot {
+        background: #f8f8f8;
+        font-weight: 700;
+      }
+
+      .courses-table tfoot td {
+        padding: 15px;
+        border-top: 2px solid rgba(224, 111, 15, 1);
+      }
+
+      .delete-btn {
+        background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "Oswald", sans-serif;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .delete-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(255, 68, 68, 0.3);
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 40px;
+        color: #999;
+        font-family: "Oswald", sans-serif;
+      }
+
+      .empty-state i {
+        font-size: 64px;
+        margin-bottom: 20px;
+        opacity: 0.3;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 20px;
+        font-family: "Oswald", sans-serif;
+        color: #666;
+      }
+    </style>
   </head>
-  <body id="about-body">
+  <body>
     <header>
       <div class="nav-container">
         <nav class="main-nav">
           <ul class="main-links oswald-font">
             <li>
               <button class="hover-underline" id="open-login-modal">
-                <i class="material-symbols-outlined login-icon"> login </i>Prijava
+                <i class="material-symbols-outlined login-icon">login</i>Prijava
               </button>
-
-              <div class="modal" id="login-modal">
-                <div class="modal-inner">
-
-                  <div class="modal-tabs">
-                    <button class="tab active" id="tab-login">Prijava</button>
-                    <button class="tab" id="tab-register">Registracija</button>
-                  </div>
-
-                  <form id="loginForm" class="form active">
-                    <div class="form-row">
-                      <label for="login-username">Korisničko ime:</label>
-                      <input type="text" id="login-username" name="username" required />
-                    </div>
-
-                    <div class="form-row">
-                      <label for="login-password">Lozinka:</label>
-                      <input type="password" id="login-password" name="password" required />
-                    </div>
-
-                    <div class="form-row buttons-row">
-                      <button type="submit">Prijavi se</button>
-                    </div>
-                  </form>
-
-                  <form id="registerForm" class="form">
-                    <div class="form-row">
-                      <label for="reg-username">Korisničko ime:</label>
-                      <input type="text" id="reg-username" name="username" required />
-                    </div>
-
-                    <div class="form-row">
-                      <label for="reg-password">Lozinka:</label>
-                      <input type="password" id="reg-password" name="password" required />
-                    </div>
-
-                    <div class="form-row buttons-row">
-                      <button type="submit">Registriraj se</button>
-                    </div>
-                  </form>
-
-                  <button type="button" id="close-login-modal">Zatvori</button>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <a href="index.html" class="hover-underline"
-                ><i class="material-symbols-outlined home-icon"> home </i
-                >Početna</a
-              >
+              <!-- Login/Register Modal (copy from your other pages) -->
             </li>
             <li>
-              <a href="about.html" class="hover-underline"
-                ><i class="material-symbols-outlined about-icon"> diversity_3 </i>O
-                nama</a
-              >
-            </li>
-            <li id="curriculum-link">
-              <a href="curriculum.html" class="hover-underline"
-                ><i class="material-symbols-outlined info-icon"> info </i
-                >Nastavni plan</a
-              >
+              <a href="index.html" class="hover-underline">
+                <i class="material-symbols-outlined home-icon">home</i>Početna
+              </a>
             </li>
             <li>
-              <a href="news.html" class="hover-underline"
-                ><i class="material-symbols-outlined info-icon"> info </i
-                >Novosti</a
-              >
+              <a href="about.html" class="hover-underline">
+                <i class="material-symbols-outlined about-icon">diversity_3</i>O
+                nama
+              </a>
+            </li>
+            <li id="curriculum-link" style="display: inline-block">
+              <a href="curriculum.html" class="hover-underline">
+                <i class="material-symbols-outlined">school</i>Nastavni plan
+              </a>
+            </li>
+            <li>
+              <a href="news.html" class="hover-underline">
+                <i class="material-symbols-outlined info-icon">info</i>Novosti
+              </a>
             </li>
             <li>
               <button class="hover-underline" id="openmodal">
@@ -154,8 +293,115 @@
             </li>
           </ul>
         </nav>
+      </div>
     </header>
-    
+
+    <main class="curriculum-main">
+      <div class="curriculum-header">
+        <h1>Nastavni Plan</h1>
+        <p style="font-family: &quot;Oswald&quot;, sans-serif; color: #666">
+          Pretražite i odaberite kolegije
+        </p>
+      </div>
+
+      <div class="search-section">
+        <h2>Naziv kolegija:</h2>
+        <input
+          type="text"
+          id="course-search"
+          placeholder="Započnite unos naziva kolegija..."
+          autocomplete="off"
+        />
+        <div class="autocomplete-results" id="autocomplete-results"></div>
+      </div>
+
+      <div class="table-section">
+        <table class="courses-table">
+          <thead>
+            <tr>
+              <th>Kolegij</th>
+              <th>ECTS</th>
+              <th>Sati</th>
+              <th>Predavanja</th>
+              <th>Vježbe</th>
+              <th>Tip</th>
+              <th>Akcija</th>
+            </tr>
+          </thead>
+          <tbody id="courses-tbody">
+            <tr class="empty-state">
+              <td colspan="7">
+                <i class="material-symbols-outlined">school</i>
+                <p>Nema odabranih kolegija. Započnite pretraživanje iznad.</p>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td><strong>UKUPNO:</strong></td>
+              <td id="total-ects">0</td>
+              <td id="total-sati">0</td>
+              <td id="total-predavanja">0</td>
+              <td id="total-vjezbe">0</td>
+              <td colspan="2"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </main>
+
+    <footer class="footer-sab">
+      <div class="footer-container">
+        <nav class="footer-marketing-channels">
+          <ul class="footer-links">
+            <li>
+              <a href="https://www.tiktok.com/@algebrabernaysuniversity/"
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/tik-tok.png"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/sveucilistealgebrabernays/"
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/facebook.png"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/algebrabernaysuniversity/"
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/instagram-logo.png"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/user/ucilistealgebra"
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/youtube.png"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/school/algebra-university/"
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/linkedin.png"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.algebra.hr/sveuciliste/"
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/world-wide-web.png"
+              /></a>
+            </li>
+          </ul>
+        </nav>
+        <p>Sveučilište Algebra Bernays</p>
+      </div>
+    </footer>
     <script src="script.js"></script>
+    <script src="curriculumscript.js"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Novosti - SUPIT</title>
+    <title>Stipendijski natječaj - SUPIT</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,101 +17,117 @@
     />
 
     <style>
-      .news-main {
+      .article-main {
         padding: 40px 20px;
-        max-width: 1200px;
+        max-width: 900px;
         margin: 0 auto;
         min-height: calc(100vh - 200px);
       }
 
-      .news-header {
-        text-align: center;
-        margin-bottom: 50px;
-      }
-
-      .news-header h1 {
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(224, 111, 15, 1);
+        text-decoration: none;
         font-family: "Oswald", sans-serif;
-        font-size: 48px;
-        font-weight: 700;
-        background: linear-gradient(
-          135deg,
-          rgba(224, 111, 15, 1) 0%,
-          rgba(196, 15, 95, 1) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        font-weight: 600;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
       }
 
-      .news-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        padding: 20px 0;
+      .back-button:hover {
+        gap: 12px;
+        color: rgba(196, 15, 95, 1);
       }
 
-      .news-card {
-        position: relative;
+      .article-hero {
+        width: 100%;
         height: 400px;
         border-radius: 15px;
         overflow: hidden;
+        margin-bottom: 40px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        transition: all 0.4s ease;
-        cursor: pointer;
       }
 
-      .news-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(224, 111, 15, 0.4);
-      }
-
-      .news-card-image {
+      .article-hero img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.4s ease;
       }
 
-      .news-card:hover .news-card-image {
-        transform: scale(1.1);
+      .article-header {
+        margin-bottom: 40px;
       }
 
-      .news-card-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.9) 0%,
-          rgba(0, 0, 0, 0.5) 50%,
-          transparent 100%
-        );
-        padding: 30px 20px;
-        color: white;
+      .article-date {
         font-family: "Oswald", sans-serif;
-      }
-
-      .news-card-date {
         font-size: 14px;
         color: rgba(224, 111, 15, 1);
         font-weight: 600;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         text-transform: uppercase;
       }
 
-      .news-card-title {
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 1.4;
-        margin: 0;
+      .article-title {
+        font-family: "Oswald", sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 20px 0;
+        color: #222;
       }
 
-      .news-card-link {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-        height: 100%;
+      .article-subtitle {
+        font-family: "Oswald", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: #666;
+        margin: 30px 0 20px 0;
+      }
+
+      .article-content {
+        font-family: "Oswald", sans-serif;
+        font-size: 18px;
+        line-height: 1.8;
+        color: #444;
+      }
+
+      .article-content p {
+        margin-bottom: 20px;
+      }
+
+      .winners-list {
+        background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        border-left: 4px solid rgba(224, 111, 15, 1);
+        padding: 30px;
+        border-radius: 10px;
+        margin: 30px 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .winner-item {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .winner-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .winner-name {
+        font-weight: 700;
+        color: rgba(224, 111, 15, 1);
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      .winner-achievement {
+        color: #555;
+        line-height: 1.6;
       }
     </style>
   </head>
@@ -200,7 +216,7 @@
                 nama
               </a>
             </li>
-            
+
             <li>
               <a href="news.html" class="hover-underline">
                 <i class="material-symbols-outlined info-icon">info</i>Novosti
@@ -272,63 +288,95 @@
       </div>
     </header>
 
-    <main class="news-main">
-      <div class="news-header">
-        <h1>Novosti</h1>
+    <main class="article-main">
+      <a href="news.html" class="back-button"> Natrag na novosti </a>
+
+      <div class="article-hero">
+        <img
+          src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/novost2.jpg"
+          alt="Stipendije"
+        />
       </div>
 
-      <div class="news-grid">
-        <!-- News Card 1 -->
-        <div class="news-card">
-          <a href="news1.html" class="news-card-link">
-            <img
-              src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/galerija1.jpg"
-              alt="WorldSkills"
-              class="news-card-image"
-            />
-            <div class="news-card-overlay">
-              <div class="news-card-date">28.08.2019.</div>
-              <h3 class="news-card-title">
-                Student Josip Stanešić 12. je sistemaš svijeta i dobitnik
-                medalje izvrsnosti na natjecanju WorldSkills Kazan 2019.
-              </h3>
-            </div>
-          </a>
+      <article>
+        <div class="article-header">
+          <div class="article-date">22. Srpnja 2019.</div>
+          <h1 class="article-title">
+            Nagrađujemo izvrsnost: Objavljujemo dobitnike stipendijskog
+            natječaja šk.god. 2018./2019.!
+          </h1>
         </div>
 
-        <!-- News Card 2 -->
-        <div class="news-card">
-          <a href="news2.html" class="news-card-link">
-            <img
-              src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/novost2.jpg"
-              alt="Stipendije"
-              class="news-card-image"
-            />
-            <div class="news-card-overlay">
-              <div class="news-card-date">22.07.2019.</div>
-              <h3 class="news-card-title">
-                Nagrađujemo izvrsnost: Objavljujemo dobitnike stipendijskog
-                natječaja šk.god. 2018./2019.!
-              </h3>
-            </div>
-          </a>
-        </div>
+        <h2 class="article-subtitle">
+          Stipendijski natječaj šk.god. 2018./2019.
+        </h2>
 
-        <!-- News Card 3 -->
-        <div class="news-card">
-          <a href="news3.html" class="news-card-link">
-            <img
-              src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu/img/novost3.jpg"
-              alt="Junior Ljeto"
-              class="news-card-image"
-            />
-            <div class="news-card-overlay">
-              <div class="news-card-date">18.04.2019.</div>
-              <h3 class="news-card-title">Digitalno Junior Ljeto</h3>
+        <div class="article-content">
+          <p>
+            Nakon velikog broja prijava koje smo primili, detaljnom analizom i
+            provjerom utvrdili smo dobitnike ovogodišnjeg stipendijskog
+            natječaja za maturante! Stipendiju u vrijednosti od 10.000,00 kuna
+            na potrošačkoj kartici dobivaju:
+          </p>
+
+          <div class="winners-list">
+            <div class="winner-item">
+              <div class="winner-name">Heidi Sokolovski iz Zagreba</div>
+              <div class="winner-achievement">
+                Za najbolji rezultat iz Matematike na A razini osvojila je
+                stipendiju u iznosu od 10.000,00 kn.
+              </div>
             </div>
-          </a>
+
+            <div class="winner-item">
+              <div class="winner-name">Tereza Žugaj iz Zagreba</div>
+              <div class="winner-achievement">
+                Za najbolji rezultat iz Matematike na B razini osvojila je
+                stipendiju u iznosu od 10.000,00 kn.
+              </div>
+            </div>
+
+            <div class="winner-item">
+              <div class="winner-name">Dalija Romac iz Sinja</div>
+              <div class="winner-achievement">
+                Za najbolji rezultat iz Hrvatskog jezika na A razini te dodatna
+                204 boda za rezultat iz Matematike A i Engleskog jezika A
+                osvojila je stipendiju u iznosu od 10.000,00 kn.
+              </div>
+            </div>
+
+            <div class="winner-item">
+              <div class="winner-name">Ella Milinović iz Zagreba</div>
+              <div class="winner-achievement">
+                Za najbolji rezultat iz Hrvatskog jezika na B razini osvojila je
+                stipendiju u iznosu od 10.000,00 kn.
+              </div>
+            </div>
+
+            <div class="winner-item">
+              <div class="winner-name">Borna Skračić iz Zadra</div>
+              <div class="winner-achievement">
+                Za najbolji rezultat iz Engleskog jezika na A razini osvojio je
+                stipendiju u iznosu od 10.000,00 kn.
+              </div>
+            </div>
+
+            <div class="winner-item">
+              <div class="winner-name">Lukas Božić iz Umaga</div>
+              <div class="winner-achievement">
+                Za najbolji rezultat iz Engleskog jezika na B razini osvojio je
+                stipendiju u iznosu od 10.000,00 kn.
+              </div>
+            </div>
+          </div>
+
+          <p>
+            Čestitamo svim dobitnicima stipendija! Vaš trud i izvrsnost
+            zaslužuju priznanje. Nadamo se da ćete nastaviti s istim uspjehom i
+            u nastavku svog obrazovanja.
+          </p>
         </div>
-      </div>
+      </article>
     </main>
 
     <footer class="footer-sab">

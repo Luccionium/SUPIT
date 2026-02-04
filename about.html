@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hr">
   <head>
     <meta charset="UTF-8" />
@@ -14,7 +14,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=diversity_3,home,info,login,mail"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=diversity_3,home,info,login,mail,school"
     />
   </head>
   <body>
@@ -24,12 +24,12 @@
           <ul class="main-links oswald-font">
             <li>
               <button class="hover-underline" id="open-login-modal">
-                <i class="material-symbols-outlined login-icon"> login </i>Prijava
+                <i class="material-symbols-outlined login-icon"> login </i
+                >Prijava
               </button>
 
               <div class="modal" id="login-modal">
                 <div class="modal-inner">
-
                   <div class="modal-tabs">
                     <button class="tab active" id="tab-login">Prijava</button>
                     <button class="tab" id="tab-register">Registracija</button>
@@ -38,12 +38,22 @@
                   <form id="loginForm" class="form active">
                     <div class="form-row">
                       <label for="login-username">Korisničko ime:</label>
-                      <input type="text" id="login-username" name="username" required />
+                      <input
+                        type="text"
+                        id="login-username"
+                        name="username"
+                        required
+                      />
                     </div>
 
                     <div class="form-row">
                       <label for="login-password">Lozinka:</label>
-                      <input type="password" id="login-password" name="password" required />
+                      <input
+                        type="password"
+                        id="login-password"
+                        name="password"
+                        required
+                      />
                     </div>
 
                     <div class="form-row buttons-row">
@@ -54,12 +64,22 @@
                   <form id="registerForm" class="form">
                     <div class="form-row">
                       <label for="reg-username">Korisničko ime:</label>
-                      <input type="text" id="reg-username" name="username" required />
+                      <input
+                        type="text"
+                        id="reg-username"
+                        name="username"
+                        required
+                      />
                     </div>
 
                     <div class="form-row">
                       <label for="reg-password">Lozinka:</label>
-                      <input type="password" id="reg-password" name="password" required />
+                      <input
+                        type="password"
+                        id="reg-password"
+                        name="password"
+                        required
+                      />
                     </div>
 
                     <div class="form-row buttons-row">
@@ -89,6 +109,11 @@
                 ><i class="material-symbols-outlined info-icon"> info </i
                 >Novosti</a
               >
+            </li>
+            <li id="curriculum-link" style="display: none">
+              <a href="curriculum.html" class="hover-underline">
+                <i class="material-symbols-outlined">school</i>Nastavni plan
+              </a>
             </li>
             <li>
               <button class="hover-underline" id="openmodal">
@@ -562,28 +587,47 @@
         <nav class="footer-marketing-channels">
           <ul class="footer-links">
             <li>
-              <a href="https://www.tiktok.com/@algebrabernaysuniversity/"><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\tik-tok.png"></a>
+              <a href="https://www.tiktok.com/@algebrabernaysuniversity/"
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\tik-tok.png"
+              /></a>
             </li>
             <li>
               <a href="https://www.facebook.com/sveucilistealgebrabernays/"
-                ><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\facebook.png"></a
-              >
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\facebook.png"
+              /></a>
             </li>
             <li>
               <a href="https://www.instagram.com/algebrabernaysuniversity/"
-                ><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\instagram-logo.png"></a
-              >
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\instagram-logo.png"
+              /></a>
             </li>
             <li>
-              <a href="https://www.youtube.com/user/ucilistealgebra"><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\youtube.png" alt=""></a>
+              <a href="https://www.youtube.com/user/ucilistealgebra"
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\youtube.png"
+                  alt=""
+              /></a>
             </li>
             <li>
               <a href="https://www.linkedin.com/school/algebra-university/"
-                ><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\linkedin.png"></a
-              >
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\linkedin.png"
+              /></a>
             </li>
             <li>
-              <a href="https://www.algebra.hr/sveuciliste/"><img class="footer-icons" src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\world-wide-web.png"></a>
+              <a href="https://www.algebra.hr/sveuciliste/"
+                ><img
+                  class="footer-icons"
+                  src="SUPIT_-_projektni_zadatak_-_materijali_za_izradu\img\world-wide-web.png"
+              /></a>
             </li>
           </ul>
         </nav>

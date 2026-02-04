@@ -58,13 +58,15 @@ function toggleLoginLogout() {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   
   if (isLoggedIn) {
-    loginIcon.classList.add("flipped");
     
+    loginIcon.classList.add("flipped");
     loginBtn.innerHTML = '<i class="material-symbols-outlined login-icon flipped">login</i>Odjava';
-
+    
+    
     if (curriculumLink) {
       curriculumLink.style.display = "inline-block";
     }
+    
     
     loginBtn.onclick = (e) => {
       e.preventDefault();
@@ -75,11 +77,14 @@ function toggleLoginLogout() {
       alert("Uspješno ste se odjavili!");
     };
   } else {
+    
     loginBtn.innerHTML = '<i class="material-symbols-outlined login-icon">login</i>Prijava';
-
+    
+    
     if (curriculumLink) {
       curriculumLink.style.display = "none";
     }
+    
     
     loginBtn.onclick = () => {
       loginModal.classList.add("open");
