@@ -210,9 +210,52 @@
           <ul class="main-links oswald-font">
             <li>
               <button class="hover-underline" id="open-login-modal">
-                <i class="material-symbols-outlined login-icon">login</i>Prijava
+                <i class="material-symbols-outlined login-icon"> login </i>Prijava
               </button>
-              <!-- Login/Register Modal (copy from your other pages) -->
+
+              <div class="modal" id="login-modal">
+                <div class="modal-inner">
+
+                  <div class="modal-tabs">
+                    <button class="tab active" id="tab-login">Prijava</button>
+                    <button class="tab" id="tab-register">Registracija</button>
+                  </div>
+
+                  <form id="loginForm" class="form active">
+                    <div class="form-row">
+                      <label for="login-username">Korisničko ime:</label>
+                      <input type="text" id="login-username" name="username" required />
+                    </div>
+
+                    <div class="form-row">
+                      <label for="login-password">Lozinka:</label>
+                      <input type="password" id="login-password" name="password" required />
+                    </div>
+
+                    <div class="form-row buttons-row">
+                      <button type="submit">Prijavi se</button>
+                    </div>
+                  </form>
+
+                  <form id="registerForm" class="form">
+                    <div class="form-row">
+                      <label for="reg-username">Korisničko ime:</label>
+                      <input type="text" id="reg-username" name="username" required />
+                    </div>
+
+                    <div class="form-row">
+                      <label for="reg-password">Lozinka:</label>
+                      <input type="password" id="reg-password" name="password" required />
+                    </div>
+
+                    <div class="form-row buttons-row">
+                      <button type="submit">Registriraj se</button>
+                    </div>
+                  </form>
+
+                  <button type="button" id="close-login-modal">Zatvori</button>
+                </div>
+              </div>
             </li>
             <li>
               <a href="index.html" class="hover-underline">
@@ -225,14 +268,15 @@
                 nama
               </a>
             </li>
-            <li id="curriculum-link" style="display: inline-block">
-              <a href="curriculum.html" class="hover-underline">
-                <i class="material-symbols-outlined">school</i>Nastavni plan
-              </a>
-            </li>
+            
             <li>
               <a href="news.html" class="hover-underline">
                 <i class="material-symbols-outlined info-icon">info</i>Novosti
+              </a>
+            </li>
+            <li id="curriculum-link" style="display: inline-block">
+              <a href="curriculum.html" class="hover-underline">
+                <i class="material-symbols-outlined">school</i>Nastavni plan
               </a>
             </li>
             <li>
